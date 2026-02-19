@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Ferrari F1 HR Portal</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+html {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+html::-webkit-scrollbar { display: none; }
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #050505;
+    color: white;
+    overflow-x: hidden;
+    scrollbar-width: none; 
+    -ms-overflow-style: none;  
+}
+
+body::-webkit-scrollbar { display: none; }
+
+.header {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%;
+    background: transparent;
+    padding: 15px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    box-sizing: border-box;
+    text-shadow: 1px 1px 10px rgba(0,0,0,0.8);
+    transition: background 0.3s ease;
+}
+
+.logo-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-box img {
+    height: clamp(30px, 4vw, 45px);
+}
+
+.logo-text {
+    color: #DC0000;
+    font-weight: 800;
+    letter-spacing: 1px;
+    font-size: clamp(14px, 2vw, 18px);
+}
+
+.nav {
+    display: flex;
+    gap: 15px;
+}
+
+.nav a {
+    color: white;
+    text-decoration: none;
+    font-size: clamp(11px, 1.5vw, 14px);
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: 0.3s;
+}
+
+.nav a:hover { color: #DC0000; }
+
+.hero {
+    position: relative;
+    height: 70vh;
+    width: 100%;
+    overflow: hidden;
+}
+
+.hero video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0) 60%, #050505 100%);
+}
+.hero-content {
+    padding: 40px 8%;
+    max-width: 1000px;
+    box-sizing: border-box;
+}
+
+.hero-content h1 {
+    font-size: clamp(28px, 6vw, 52px);
+    margin: 0;
+    font-weight: 900;
+    text-transform: uppercase;
+    line-height: 1.1;
+}
+
+.hero-content p {
+    margin-top: 15px;
+    color: #bbb;
+    line-height: 1.6;
+    font-size: clamp(14px, 1.8vw, 18px);
+    max-width: 600px;
+}
+
+.content {
+    padding: 20px 8% 80px;
+    box-sizing: border-box;
+}
+
+.section-title {
+    font-size: clamp(20px, 4vw, 30px);
+    margin-bottom: 30px;
+    border-left: 5px solid #DC0000;
+    padding-left: 15px;
+    text-transform: uppercase;
+}
+
+.policy-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.policy-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.08);
+    padding: clamp(20px, 3vw, 35px);
+    border-radius: 12px;
+    transition: 0.3s ease;
+}
+
+.policy-card:hover {
+    transform: translateY(-5px);
+    border-color: #DC0000;
+}
+
+.policy-card h3 {
+    color: #DC0000;
+    font-size: 18px;
+    margin: 0 0 10px 0;
+    text-transform: uppercase;
+}
+
+.policy-card p {
+    color: #cfcfcf;
+    font-size: 14px;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 40px;
+    background: #DC0000;
+    color: white;
+    padding: 15px 35px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 14px;
+    transition: 0.3s;
+    text-align: center;
+}
+
+.btn:hover {
+    background: #ff1a1a;
+    transform: scale(1.02);
+}
+
+@media (max-width: 600px) {
+    .header {
+        padding: 15px 20px;
+        background: rgba(0,0,0,0.8);
+    }
+    .nav { gap: 10px; }
+    .hero { height: 50vh; }
+    .hero-content { text-align: center; padding-top: 20px; }
+    .hero-content p { margin: 15px auto 0 auto; }
+    .btn { width: 100%; box-sizing: border-box; }
+}
+</style>
+</head>
+
+<body>
+
+<header class="header">
+    <div class="logo-box">
+        <img src="ferrari-logo.png" alt="Ferrari Logo">
+        <div class="logo-text">FERRARI F1 HR</div>
+    </div>
+    <nav class="nav">
+        <a href="#">Policies</a>
+        <a href="#">Compliance</a>
+        <a href="#">Support</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <video autoplay muted loop playsinline>
+        <source src="Untitled video - Made with Clipchamp.mp4" type="video/mp4">
+    </video>
+</section>
+
+<section class="hero-content">
+    <h1>Ferrari F1 HR Policy Portal</h1>
+    <p>Centralized platform for Ferrari Formula 1 department HR policies, compliance standards, and internal workforce governance.</p>
+</section>
+
+<section class="content">
+    <h2 class="section-title">HR Policies</h2>
+    <div class="policy-grid">
+        <div class="policy-card">
+            <h3>Workplace Conduct</h3>
+            <p>Maintain professionalism and discipline across all Ferrari F1 divisions.</p>
+        </div>
+        <div class="policy-card">
+            <h3>Race Week Travel</h3>
+            <p>Travel approvals must follow Ferrari Formula 1 operational standards.</p>
+        </div>
+        <div class="policy-card">
+            <h3>Data Security</h3>
+            <p>All engineering and race strategy data must remain strictly confidential.</p>
+        </div>
+    </div>
+    <a href="add-user.html" class="btn">Add Employee</a>
+</section>
+
+</body>
+</html>

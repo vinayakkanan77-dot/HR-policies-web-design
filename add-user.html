@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Add Employee | Racing Portal</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", Roboto, sans-serif;
+    color: white;
+    background-color: #000;
+    overflow-x: hidden; 
+    overflow-y: auto;
+}
+
+body::-webkit-scrollbar { display: none; }
+body { -ms-overflow-style: none; scrollbar-width: none; }
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px 5%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    z-index: 1000;
+    box-sizing: border-box;
+}
+
+.logo-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-box img {
+    height: 40px;
+}
+
+.logo-text {
+    color: #DC0000;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.bg-video {
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+}
+.bg-video video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5); 
+    z-index: -1;
+}
+
+.form-section {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 100px 20px 40px; /* Top padding increased for header space */
+    box-sizing: border-box;
+}
+
+form {
+    width: 100%;
+    max-width: 420px;
+    padding: 20px;
+    transition: transform 0.3s ease;
+}
+
+h2 {
+    color: #DC0000;
+    margin: 0 0 25px 0;
+    font-size: clamp(22px, 5vw, 28px);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 900;
+    text-align: center;
+}
+
+label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+input, select {
+    width: 100%;
+    padding: 14px 16px;
+    box-sizing: border-box;
+    border-radius: 8px;
+    border: 1.5px solid rgba(255, 255, 255, 0.2);
+    background: rgba(0, 0, 0, 0.7); 
+    color: white;
+    font-size: 16px;
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+input:focus, select:focus {
+    border-color: #DC0000;
+}
+.dob-wrapper {
+    position: relative;
+}
+
+input[type="date"] {
+    color-scheme: dark;
+    cursor: pointer;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.calendar-btn {
+    position: absolute;
+    right: 6px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    background: #DC0000;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+}
+
+.submit-btn {
+    width: 100%;
+    margin-top: 35px;
+    padding: 16px;
+    background: #DC0000;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 16px;
+    font-weight: 800;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.submit-btn:hover {
+    background: #ff0000;
+}
+
+.cancel-btn {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+}
+
+@media (min-width: 1024px) {
+    form {
+        max-width: 450px;
+        padding: 40px;
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(5px);
+        border-radius: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+}
+
+@media (max-width: 480px) {
+    .form-section {
+        padding: 90px 10px 20px;
+        align-items: flex-start;
+    }
+}
+
+</style>
+</head>
+<body>
+
+<!-- HEADER (ADDED) -->
+<header class="header">
+    <div class="logo-box">
+        <img src="ferrari-logo.png" alt="Ferrari Logo">
+        <div class="logo-text">FERRARI F1 HR</div>
+    </div>
+</header>
+
+<div class="bg-video">
+    <video autoplay muted loop playsinline>
+        <source src="Untitled video.mp4" type="video/mp4">
+    </video>
+</div>
+
+<div class="overlay"></div>
+
+<section class="form-section">
+    <form>
+        <h2>Add Employee</h2>
+
+        <label>Full Name</label>
+        <input type="text" placeholder="e.g. Lewis Hamilton" required>
+
+        <label>Employee ID</label>
+        <input type="text" placeholder="e.g. F1-2026-44" required>
+
+        <label>Email Address</label>
+        <input type="email" placeholder="e.g. l.hamilton@ferrari.com" required>
+
+        <label>Department</label>
+        <select>
+            <option>Engineering</option>
+            <option>Race Operations</option>
+            <option>Aerodynamics</option>
+            <option>Pit Crew</option>
+        </select>
+
+        <label>Date of Birth</label>
+        <div class="dob-wrapper">
+            <input type="date" id="dob" required>
+            <div class="calendar-btn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5">
+                    <rect x="3" y="4" width="18" height="18" rx="2"></rect>
+                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                </svg>
+            </div>
+        </div>
+
+        <button type="submit" class="submit-btn">Save Employee</button>
+        <a href="index.html" class="cancel-btn">Cancel</a>
+    </form>
+</section>
+
+<script>
+const dobInput = document.getElementById('dob');
+dobInput.addEventListener('click', () => {
+    if (dobInput.showPicker) dobInput.showPicker();
+});
+</script>
+
+</body>
+</html>
